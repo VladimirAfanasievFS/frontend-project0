@@ -22,8 +22,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           make install
-          make build
-          make test
+          make start
         env:
           CI: true
       - name: Run linter
