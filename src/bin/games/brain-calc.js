@@ -1,17 +1,28 @@
-import readlineSync from 'readline-sync';
-
-
-// const checkEven = () => {
-//   const actual = readlineSync.question('May I have your name?');
-//   return actual;
-// };
-// const compareNumberAndAnswer = (number , answerString) => {
-//   return;
-// };
-
-const start = (nameUser) => {
-  console.log(`Answer "yes" if the number is even, otherwise answer "no".`);
-
-  return telo({ ...nameUser }) && telo(nameUser) && telo(nameUser) && console.log(`Congratulations, ${nameUser}!`);
+function sample(array) {
+  const length = array == null ? 0 : array.length;
+  return length ? array[Math.floor(Math.random() * length)] : undefined;
+}
+const brainGameData = {
+  greeting: `What is the result of the expression?`,
+  condition: () => {
+    const maxNumber = 10;
+    const operand1 = Math.floor(Math.random() * maxNumber);
+    const operand2 = Math.floor(Math.random() * maxNumber);
+    const operator = {
+      "+": (a, b) => a + b,
+      "-": (a, b) => a - b,
+      "*": (a, b) => a * b,
+    };
+    const randomOperator = sample(Object.keys(operator));
+    return {
+      string: `${operand1} ${randomOperator} ${operand2}`,
+      result: operator[randomOperator](operand1, operand2),
+    };
+  },
+  checkCondition: (input, answer) => {
+    const result = Number(input) === Number(answer);
+    return result;
+  },
 };
-export default start;
+
+export default brainGameData;

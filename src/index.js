@@ -1,18 +1,8 @@
 import readlineSync from 'readline-sync';
 
 const questWhatYourName = () => {
-  const actual = readlineSync.question(`May I have your name?`);
+  const actual = readlineSync.question(`May I have your name? `);
   return actual;
-};
-
-
-const checkResult = (conditionBool, answerBool, trueAnswer = `222`, nameUser = `VAAAAAASSSSSSAA`, answer) => {
-  if (conditionBool === answerBool) {
-    console.log(`Correct!`);
-    return true;
-  }
-  console.log(`${answer} is wrong answer ;(. Correct answer was ${trueAnswer} . Let's try again, ${nameUser}!`);
-  return false;
 };
 
 
@@ -22,24 +12,21 @@ const start = (nameGame) => {
   console.log(`Hi ${nameUser}!`);
   console.log(nameGame.greeting);
 
+  const { condition, checkCondition } = nameGame;
+
   for (let index = 0; index < 3; index += 1) {
-    const condition = nameGame.condition();
-    console.log(`Question: ${condition}`);
-
+    const condit = condition();
+    console.log(`Question:  ${condit.string}`);
     const answer = readlineSync.question(`Answer: `);
-    const resultCondition = nameGame.checkCondition(condition);
 
-    const result = checkResult(resultCondition,
-      nameGame.answerToBoolWithCheckErr(answer),
-      nameGame.trueAnswer(resultCondition),
-      nameUser,
-      answer);
-
-    if (!result) {
+    const resultCondition = checkCondition(condit.result, answer);
+    if (!resultCondition) {
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${condit.result}"`);
+      console.log(`Let's try again, ${nameUser}!`);
       return;
     }
+    console.log(`Correct!`);
   }
   console.log(`Congratulations, ${nameUser}!`);
-// return nameGame.checkResult({ ...resultObj }) && nameGame.checkResult(resultObj) && nameGame.checkResult(resultObj) && console.log(`Congratulations, ${nameUser}!`);
 };
 export { questWhatYourName, start };

@@ -8,6 +8,7 @@
     "type": "node",
     "request": "launch",
     "name": "Launch Program",
+    "console": "integratedTerminal",
     "program": "${workspaceFolder}/src/bin/brain-games.js",
     "skipFiles": [
         "<node_internals>/**"

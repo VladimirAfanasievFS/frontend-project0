@@ -3,20 +3,16 @@ const brainGameData = {
   greeting: `Answer "yes" if the number is even, otherwise answer "no".`,
   condition: () => {
     const maxNumber = 100;
-    return Math.floor(Math.random() * maxNumber);
+    const result = Math.floor(Math.random() * maxNumber);
+    return {
+      string: result,
+      result: (((result % 2) === 0) ? `yes` : `no`),
+    };
   },
-  answerToBoolWithCheckErr: (answerString) => {
-    switch (answerString) {
-      case `yes`:
-        return true;
-      case `no`:
-        return false;
-      default:
-        return -1;
-    }
+  checkCondition: (input, answer) => {
+    const result = (input === answer);
+    return result;
   },
-  checkCondition: (number) => ((number % 2) === 0),
-  trueAnswer: (bool) => (bool ? `yes` : `no`),
 };
 
 export default brainGameData;
