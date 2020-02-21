@@ -2,7 +2,7 @@
 
 import { greetingStart, questWhatYourName, startGame } from '../../index.js';
 
-const maxNumber = 10;
+
 function isSimple(number) {
   if (number === 0) {
     return false;
@@ -20,6 +20,7 @@ function isSimple(number) {
 const brainGameData = {
   greeting: `Answer "yes" if given number is prime. Otherwise answer "no".`,
   condition: () => {
+    const maxNumber = 10;
     const result = Math.floor(Math.random() * maxNumber);
 
 
