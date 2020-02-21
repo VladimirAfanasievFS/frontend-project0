@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+import { greetingStart, questWhatYourName, startGame } from '../../index.js';
+
 function sample(array) {
   const length = array == null ? 0 : array.length;
   return length ? array[Math.floor(Math.random() * length)] : undefined;
@@ -25,4 +29,5 @@ const brainGameData = {
   },
 };
 
-export default brainGameData;
+greetingStart();
+startGame(questWhatYourName(), brainGameData);

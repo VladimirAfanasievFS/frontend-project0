@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+import { greetingStart, questWhatYourName, startGame } from '../../index.js';
 
 const brainGameData = {
   greeting: `Find the greatest common divisor of given numbers.`,
@@ -16,4 +19,5 @@ const brainGameData = {
   },
 };
 
-export default brainGameData;
+greetingStart();
+startGame(questWhatYourName(), brainGameData);

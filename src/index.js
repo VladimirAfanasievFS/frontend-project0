@@ -1,21 +1,21 @@
 import readlineSync from 'readline-sync';
 
-const questWhatYourName = () => {
-  const actual = readlineSync.question(`May I have your name? `);
-  return actual;
+const greetingStart = () => {
+  console.log(`Welcome to the Brain Games!`);
 };
 
-
-const start = (nameGame) => {
-  console.log(`Welcome to the Brain Games!`);
-  const nameUser = questWhatYourName();
+const questWhatYourName = () => {
+  const nameUser = readlineSync.question(`May I have your name? `);
   console.log(`Hi ${nameUser}!`);
-  console.log(nameGame.greeting);
+  return nameUser;
+};
 
-  const { condition, checkCondition } = nameGame;
+const startGame = (nameUser, nameGame) => {
+  const { greeting, condition, checkCondition } = nameGame;
 
   for (let index = 0; index < 3; index += 1) {
     const condit = condition();
+    console.log(greeting);
     console.log(`Question:  ${condit.string}`);
     const answer = readlineSync.question(`Answer: `);
 
@@ -29,4 +29,4 @@ const start = (nameGame) => {
   }
   console.log(`Congratulations, ${nameUser}!`);
 };
-export { questWhatYourName, start };
+export { greetingStart, questWhatYourName, startGame };

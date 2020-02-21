@@ -2,18 +2,30 @@
 
 import { greetingStart, questWhatYourName, startGame } from '../../index.js';
 
-function isEven(number) {
-  return ((number % 2) === 0);
+const maxNumber = 10;
+function isSimple(number) {
+  if (number === 0) {
+    return false;
+  }
+  if (number === 1) {
+    return true;
+  }
+  for (let index = 2; index < number; index += 1) {
+    if (((number % index) === 0) && (number === index)) {
+      return true;
+    }
+  }
+  return false;
 }
-
 const brainGameData = {
-  greeting: `Answer "yes" if the number is even, otherwise answer "no".`,
+  greeting: `Answer "yes" if given number is prime. Otherwise answer "no".`,
   condition: () => {
-    const maxNumber = 100;
     const result = Math.floor(Math.random() * maxNumber);
+
+
     return {
       string: result,
-      result: (isEven(result) ? `yes` : `no`),
+      result: isSimple(result) ? `yes` : `no`,
     };
   },
   checkCondition: (input, answer) => {
