@@ -9,3 +9,10 @@
 <p>brain-calc</p>
 <a href="https://asciinema.org/a/p8XTvrfxLZzHJpAChhEtCpLYI" target="_blank"><img src="https://asciinema.org/a/p8XTvrfxLZzHJpAChhEtCpLYI.svg" /></a>
 <p>brain-even</p>
+<a href="https://asciinema.org/a/dKa3KHB3MVUE2LgwnaCu6MRrr" target="_blank"><img src="https://asciinema.org/a/dKa3KHB3MVUE2LgwnaCu6MRrr.svg" /></a>
+<p>brain-gcd/p>
+<a href="https://asciinema.org/a/kBjrkDqgGj4o31fy2oYe9RmsP" target="_blank"><img src="https://asciinema.org/a/kBjrkDqgGj4o31fy2oYe9RmsP.svg" /></a>
+<p>brain-prime/p>
+<a href="https://asciinema.org/a/2snPDHgP5KxPJW3i5hdzIJKOL" target="_blank"><img src="https://asciinema.org/a/2snPDHgP5KxPJW3i5hdzIJKOL.svg" /></a>
+<p>brain-progression/p>
+<a href="https://asciinema.org/a/aO1JymY9ogd9M65GAdt2FCvD6" target="_blank"><img src="https://asciinema.org/a/aO1JymY9ogd9M65GAdt2FCvD6.svg" /></a>

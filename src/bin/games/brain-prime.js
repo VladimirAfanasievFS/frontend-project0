@@ -4,19 +4,20 @@ import { greetingStart, questWhatYourName, startGame } from '../../index.js';
 
 
 function isSimple(number) {
-  if (number === 0) {
+  if (number === 0 || number === 1) {
     return false;
   }
-  if (number === 1) {
-    return true;
-  }
-  for (let index = 2; index < number; index += 1) {
+  for (let index = 2; index <= number; index += 1) {
     if (((number % index) === 0) && (number === index)) {
       return true;
+    }
+    if ((number % index) === 0) {
+      return false;
     }
   }
   return false;
 }
+console.log(isSimple(5));
 const brainGameData = {
   greeting: `Answer "yes" if given number is prime. Otherwise answer "no".`,
   condition: () => {

@@ -9,7 +9,7 @@
     "request": "launch",
     "name": "Launch Program",
     "console": "integratedTerminal",
-    "program": "${workspaceFolder}/src/bin/games/brain-gcd.js",
+    "program": "${workspaceFolder}/src/bin/games/brain-prime.js",
     "skipFiles": [
         "<node_internals>/**"
     ]

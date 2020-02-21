@@ -9,8 +9,8 @@ function sample(array) {
 const brainGameData = {
   greeting: `What number is missing in the progression?`,
   condition: () => {
-    const maxNumber = 10;
-    const maxLengthArray = 10;
+    const maxNumber = 100;
+    const maxLengthArray = 20;
     const startArr = Math.floor(Math.random() * maxNumber);
     const resultStrArr = [];
     for (let index = 1; index < maxLengthArray; index += 2) {
