@@ -15,9 +15,5 @@ removeLink:
 	sudo rm /usr/bin/brain-prime
 	sudo rm /usr/bin/brain-progression
 	sudo rm /usr/bin/brain-calc
-test:
-	npm test
 
-test-coverage:
-	npm test -- --coverage
 
