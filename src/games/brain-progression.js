@@ -1,13 +1,11 @@
-#!/usr/bin/env node
 
-import { greetingStart, questWhatYourName, startGame } from '../../index.js';
 
 function sample(array) {
   const length = array == null ? 0 : array.length;
   return length ? array[Math.floor(Math.random() * length)] : undefined;
 }
 const brainGameData = {
-  greeting: `What number is missing in the progression?`,
+  greeting: 'What number is missing in the progression?',
   condition: () => {
     const maxNumber = 100;
     const maxLengthArray = 20;
@@ -18,9 +16,9 @@ const brainGameData = {
     }
     const indexRandom = resultStrArr.indexOf(sample(resultStrArr));
     const result = resultStrArr[indexRandom];
-    resultStrArr[indexRandom] = `..`;
+    resultStrArr[indexRandom] = '..';
     return {
-      string: resultStrArr.join(` `),
+      string: resultStrArr.join(' '),
       result,
     };
   },
@@ -30,5 +28,4 @@ const brainGameData = {
   },
 };
 
-greetingStart();
-startGame(questWhatYourName(), brainGameData);
+export default brainGameData;

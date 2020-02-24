@@ -1,19 +1,18 @@
-#!/usr/bin/env node
 
-import { greetingStart, questWhatYourName, startGame } from '../../index.js';
+
 
 function isEven(number) {
   return ((number % 2) === 0);
 }
 
 const brainGameData = {
-  greeting: `Answer "yes" if the number is even, otherwise answer "no".`,
+  greeting: 'Answer "yes" if the number is even, otherwise answer "no".',
   condition: () => {
     const maxNumber = 100;
     const result = Math.floor(Math.random() * maxNumber);
     return {
       string: result,
-      result: (isEven(result) ? `yes` : `no`),
+      result: (isEven(result) ? 'yes' : 'no'),
     };
   },
   checkCondition: (input, answer) => {
@@ -22,5 +21,4 @@ const brainGameData = {
   },
 };
 
-greetingStart();
-startGame(questWhatYourName(), brainGameData);
+export default brainGameData;

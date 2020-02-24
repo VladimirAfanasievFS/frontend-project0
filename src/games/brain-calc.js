@@ -1,21 +1,18 @@
-#!/usr/bin/env node
-
-import { greetingStart, questWhatYourName, startGame } from '../../index.js';
 
 function sample(array) {
   const length = array == null ? 0 : array.length;
   return length ? array[Math.floor(Math.random() * length)] : undefined;
 }
 const brainGameData = {
-  greeting: `What is the result of the expression?`,
+  greeting: 'What is the result of the expression?',
   condition: () => {
     const maxNumber = 10;
     const operand1 = Math.floor(Math.random() * maxNumber);
     const operand2 = Math.floor(Math.random() * maxNumber);
     const operator = {
-      "+": (a, b) => a + b,
-      "-": (a, b) => a - b,
-      "*": (a, b) => a * b,
+      '+': (a, b) => a + b,
+      '-': (a, b) => a - b,
+      '*': (a, b) => a * b,
     };
     const randomOperator = sample(Object.keys(operator));
     return {
@@ -29,5 +26,4 @@ const brainGameData = {
   },
 };
 
-greetingStart();
-startGame(questWhatYourName(), brainGameData);
+export default brainGameData;
