@@ -1,16 +1,5 @@
 
-import { isDivisor } from '../lib/predicatesLib.js';
-
-function getGCD(firstValue, secondValue) {
-  let divisor = 1;
-  const minValue = (firstValue >= secondValue) ? firstValue : secondValue;
-  for (let index = 1; index < minValue; index += 1) {
-    if (isDivisor(firstValue, index) && isDivisor(secondValue, index)) {
-      divisor = index;
-    }
-  }
-  return divisor;
-}
+import { getGCD } from '../lib/helpFunctionLib.js';
 
 const brainGameData = {
   greeting: 'Find the greatest common divisor of given numbers.',

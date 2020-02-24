@@ -1,5 +1,5 @@
 
-import sample from '../lib/helpFunctionLib.js';
+import { sample } from '../lib/helpFunctionLib.js';
 
 const brainGameData = {
   greeting: 'What is the result of the expression?',
