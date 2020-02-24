@@ -1,7 +1,7 @@
 install:
 	npm install
 start:
-	npx node src/bin/brain-games.js
+	node src/bin/games/brain-games.js
 publish:
 	npm publish --dry-run
 gitlg: 
