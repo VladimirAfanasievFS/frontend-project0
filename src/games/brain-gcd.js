@@ -1,7 +1,6 @@
 
-function isDivisor(firstValue, secondValue) {
-  return ((firstValue % secondValue) === 0);
-}
+import { isDivisor } from '../lib/predicatesLib.js';
+
 function getGCD(firstValue, secondValue) {
   let divisor = 1;
   const minValue = (firstValue >= secondValue) ? firstValue : secondValue;

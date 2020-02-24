@@ -1,8 +1,6 @@
 
-function sample(array) {
-  const length = array == null ? 0 : array.length;
-  return length ? array[Math.floor(Math.random() * length)] : undefined;
-}
+import sample from '../lib/helpFunctionLib.js';
+
 const brainGameData = {
   greeting: 'What is the result of the expression?',
   condition: () => {

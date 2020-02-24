@@ -1,8 +1,6 @@
 
-function sample(array) {
-  const length = array == null ? 0 : array.length;
-  return length ? array[Math.floor(Math.random() * length)] : undefined;
-}
+import helpLib from '../lib/predicatesLib.js';
+
 const brainGameData = {
   greeting: 'What number is missing in the progression?',
   condition: () => {
@@ -13,7 +11,7 @@ const brainGameData = {
     for (let index = 1; index < maxLengthArray; index += 2) {
       resultStrArr.push(startArr + index);
     }
-    const indexRandom = resultStrArr.indexOf(sample(resultStrArr));
+    const indexRandom = resultStrArr.indexOf(helpLib.sample(resultStrArr));
     const result = resultStrArr[indexRandom];
     resultStrArr[indexRandom] = '..';
     return {

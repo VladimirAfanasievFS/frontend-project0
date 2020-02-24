@@ -1,18 +1,5 @@
 
-function isSimple(number) {
-  if (number === 0 || number === 1) {
-    return false;
-  }
-  for (let index = 2; index <= number; index += 1) {
-    if (((number % index) === 0) && (number === index)) {
-      return true;
-    }
-    if ((number % index) === 0) {
-      return false;
-    }
-  }
-  return false;
-}
+import { isSimple } from '../lib/predicatesLib.js';
 
 const brainGameData = {
   greeting: 'Answer "yes" if given number is prime. Otherwise answer "no".',

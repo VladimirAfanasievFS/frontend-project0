@@ -1,7 +1,5 @@
 
-function isEven(number) {
-  return ((number % 2) === 0);
-}
+import { isEven } from '../lib/predicatesLib.js';
 
 const brainGameData = {
   greeting: 'Answer "yes" if the number is even, otherwise answer "no".',
