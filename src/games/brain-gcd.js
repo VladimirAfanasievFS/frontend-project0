@@ -1,6 +1,4 @@
 
-
-
 function isDivisor(firstValue, secondValue) {
   return ((firstValue % secondValue) === 0);
 }
