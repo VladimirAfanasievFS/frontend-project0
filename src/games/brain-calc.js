@@ -1,12 +1,13 @@
 
-import { sample } from '../lib/helpFunctionLib.js';
+import startThisGame from '../index.js';
+import { randomNumber, sample } from '../lib/utils.js';
 
-const brainGameData = {
-  greeting: 'What is the result of the expression?',
+const messageGreeting = 'What is the result of the expression?';
+const dataGame = {
   condition: () => {
     const maxNumber = 10;
-    const operand1 = Math.floor(Math.random() * maxNumber);
-    const operand2 = Math.floor(Math.random() * maxNumber);
+    const operand1 = randomNumber(maxNumber);
+    const operand2 = randomNumber(maxNumber);
     const operator = {
       '+': (a, b) => a + b,
       '-': (a, b) => a - b,
@@ -24,4 +25,8 @@ const brainGameData = {
   },
 };
 
-export default brainGameData;
+const startGame = () => {
+  startThisGame(messageGreeting, dataGame);
+};
+
+export default startGame;

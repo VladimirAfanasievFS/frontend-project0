@@ -2,7 +2,6 @@
 
 [![Node CI](https://github.com/H9ko/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/H9ko/frontend-project-lvl1/actions)
 <a href="https://codeclimate.com/github/H9ko/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/90c245f108fc36c71a6f/maintainability" /></a>
-<a href="https://codeclimate.com/github/H9ko/frontend-project-lvl1/test_coverage"><img src="https://api.codeclimate.com/v1/badges/90c245f108fc36c71a6f/test_coverage" /></a>
 
 <p>brain-games</p>
 <a href="https://asciinema.org/a/Me6ZMV3XsfXduS3KJ5MAD5Fdk" target="_blank"><img src="https://asciinema.org/a/Me6ZMV3XsfXduS3KJ5MAD5Fdk.svg" /></a>

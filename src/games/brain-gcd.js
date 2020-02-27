@@ -1,8 +1,23 @@
 
-import { getGCD } from '../lib/helpFunctionLib.js';
+import startThisGame from '../index.js';
 
-const brainGameData = {
-  greeting: 'Find the greatest common divisor of given numbers.',
+function isDivisor(firstValue, secondValue) {
+  return ((firstValue % secondValue) === 0);
+}
+
+function getGCD(firstValue, secondValue) {
+  let divisor = 1;
+  const minValue = (firstValue >= secondValue) ? firstValue : secondValue;
+  for (let index = 1; index < minValue; index += 1) {
+    if (isDivisor(firstValue, index) && isDivisor(secondValue, index)) {
+      divisor = index;
+    }
+  }
+  return divisor;
+}
+
+const messageGreeting = 'Find the greatest common divisor of given numbers.';
+const dataGame = {
   condition: () => {
     const maxNumber = 20;
     const firstValue = Math.floor(Math.random() * maxNumber);
@@ -18,4 +33,8 @@ const brainGameData = {
   },
 };
 
-export default brainGameData;
+const startGame = () => {
+  startThisGame(messageGreeting, dataGame);
+};
+
+export default startGame;

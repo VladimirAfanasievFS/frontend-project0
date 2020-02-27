@@ -1,11 +1,17 @@
 
-import { isEven } from '../lib/predicatesLib.js';
+import startThisGame from '../index.js';
+import { randomNumber } from '../lib/utils.js';
 
-const brainGameData = {
-  greeting: 'Answer "yes" if the number is even, otherwise answer "no".',
+function isEven(number) {
+  return ((number % 2) === 0);
+}
+
+const messageGreeting = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const dataGame = {
   condition: () => {
     const maxNumber = 100;
-    const result = Math.floor(Math.random() * maxNumber);
+    const result = randomNumber(maxNumber);
     return {
       string: result,
       result: (isEven(result) ? 'yes' : 'no'),
@@ -17,4 +23,8 @@ const brainGameData = {
   },
 };
 
-export default brainGameData;
+const startGame = () => {
+  startThisGame(messageGreeting, dataGame);
+};
+
+export default startGame;

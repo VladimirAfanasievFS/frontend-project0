@@ -1,29 +1,22 @@
 import readlineSync from 'readline-sync';
 
-const greetingStart = () => {
-  console.log('Welcome to the Brain Games!');
-};
+const numberOfRepitions = 3;
 
-const questWhatYourName = () => {
+const startThisGame = (messageGreeting, dataGame) => {
+  console.log('Welcome to the Brain Games!');
   const nameUser = readlineSync.question('May I have your name? ');
   console.log(`Hi ${nameUser}!`);
-  return nameUser;
-};
+  const { condition, checkCondition } = dataGame;
 
-const startGame = (nameGame) => {
-  greetingStart();
-  const nameUser = questWhatYourName();
-  const { greeting, condition, checkCondition } = nameGame;
-
-  for (let index = 0; index < 3; index += 1) {
-    const condit = condition();
-    console.log(greeting);
-    console.log(`Question:  ${condit.string}`);
+  for (let index = 0; index < numberOfRepitions; index += 1) {
+    const dataCondition = condition();
+    console.log(messageGreeting);
+    console.log(`Question:  ${dataCondition.string}`);
     const answer = readlineSync.question('Answer: ');
 
-    const resultCondition = checkCondition(condit.result, answer);
+    const resultCondition = checkCondition(dataCondition.result, answer);
     if (!resultCondition) {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${condit.result}"`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${dataCondition.result}"`);
       console.log(`Let's try again, ${nameUser}!`);
       return;
     }
@@ -31,4 +24,4 @@ const startGame = (nameGame) => {
   }
   console.log(`Congratulations, ${nameUser}!`);
 };
-export { greetingStart, questWhatYourName, startGame };
+export default startThisGame;
