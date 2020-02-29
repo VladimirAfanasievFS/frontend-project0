@@ -1,8 +1,8 @@
 
-import startThisGame from '../index.js';
-import { randomNumber } from '../lib/utils.js';
+import startEngine from '../index.js';
+import randomNumber from '../lib/utils.js';
 
-function isSimple(number) {
+const isSimple = (number) => {
   if (number <= 1) {
     return false;
   }
@@ -12,14 +12,14 @@ function isSimple(number) {
     }
   }
   return true;
-}
+};
 
-const messageGreeting = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const dataGame = {
-  greeting: 'Answer "yes" if given number is prime. Otherwise answer "no".',
   condition: () => {
+    const minNumber = 0;
     const maxNumber = 100;
-    const result = randomNumber(maxNumber);
+    const result = randomNumber(minNumber, maxNumber);
     return {
       string: result,
       result: isSimple(result) ? 'yes' : 'no',
@@ -32,7 +32,7 @@ const dataGame = {
 };
 
 const startGame = () => {
-  startThisGame(messageGreeting, dataGame);
+  startEngine(description, dataGame);
 };
 
 export default startGame;

@@ -1,8 +1,8 @@
 
-const randomNumber = (maxNumber = 100) => Math.floor(Math.random() * maxNumber);
-function sample(array) {
-  const length = array == null ? 0 : array.length;
-  return length ? array[Math.floor(Math.random() * length)] : undefined;
-}
+const randomNumber = (minNumber = 0, maxNumber = 10) => {
+  const min = Math.ceil(minNumber);
+  const max = Math.floor(maxNumber);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
-export { randomNumber, sample };
+export default randomNumber;

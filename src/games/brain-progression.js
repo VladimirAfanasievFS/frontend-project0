@@ -1,18 +1,20 @@
 
-import startThisGame from '../index.js';
-import { randomNumber, sample } from '../lib/utils.js';
+import startEngine from '../index.js';
+import randomNumber from '../lib/utils.js';
 
-const messageGreeting = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 const dataGame = {
   condition: () => {
+    const minNumber = 0;
     const maxNumber = 100;
+    const beginIndexArray = 0;
     const maxLengthArray = 20;
-    const startArr = randomNumber(maxNumber);
+    const startArr = randomNumber(minNumber, maxNumber);
     const resultStrArr = [];
     for (let index = 1; index < maxLengthArray; index += 2) {
       resultStrArr.push(startArr + index);
     }
-    const indexRandom = resultStrArr.indexOf(sample(resultStrArr));
+    const indexRandom = randomNumber(beginIndexArray, resultStrArr.length);
     const result = resultStrArr[indexRandom];
     resultStrArr[indexRandom] = '..';
     return {
@@ -27,7 +29,7 @@ const dataGame = {
 };
 
 const startGame = () => {
-  startThisGame(messageGreeting, dataGame);
+  startEngine(description, dataGame);
 };
 
 export default startGame;

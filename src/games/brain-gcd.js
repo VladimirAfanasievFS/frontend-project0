@@ -1,27 +1,27 @@
 
-import startThisGame from '../index.js';
+import startEngine from '../index.js';
+import randomNumber from '../lib/utils.js';
 
-function isDivisor(firstValue, secondValue) {
-  return ((firstValue % secondValue) === 0);
-}
+const isDivisor = (firstValue, secondValue) => ((firstValue % secondValue) === 0);
 
-function getGCD(firstValue, secondValue) {
+const getGCD = (firstValue, secondValue) => {
   let divisor = 1;
   const minValue = (firstValue >= secondValue) ? firstValue : secondValue;
-  for (let index = 1; index < minValue; index += 1) {
+  for (let index = 1; index <= minValue; index += 1) {
     if (isDivisor(firstValue, index) && isDivisor(secondValue, index)) {
       divisor = index;
     }
   }
   return divisor;
-}
+};
 
-const messageGreeting = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 const dataGame = {
   condition: () => {
+    const minNumber = 0;
     const maxNumber = 20;
-    const firstValue = Math.floor(Math.random() * maxNumber);
-    const secondValue = Math.floor(Math.random() * maxNumber);
+    const firstValue = randomNumber(minNumber, maxNumber);
+    const secondValue = randomNumber(minNumber, maxNumber);
     return {
       string: `${firstValue}  ${secondValue}`,
       result: getGCD(firstValue, secondValue),
@@ -34,7 +34,7 @@ const dataGame = {
 };
 
 const startGame = () => {
-  startThisGame(messageGreeting, dataGame);
+  startEngine(description, dataGame);
 };
 
 export default startGame;

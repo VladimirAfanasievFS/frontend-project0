@@ -2,18 +2,16 @@ import readlineSync from 'readline-sync';
 
 const numberOfRepitions = 3;
 
-const startThisGame = (messageGreeting, dataGame) => {
+const startEngine = (description, dataGame) => {
   console.log('Welcome to the Brain Games!');
   const nameUser = readlineSync.question('May I have your name? ');
   console.log(`Hi ${nameUser}!`);
   const { condition, checkCondition } = dataGame;
-
+  console.log(description);
   for (let index = 0; index < numberOfRepitions; index += 1) {
     const dataCondition = condition();
-    console.log(messageGreeting);
     console.log(`Question:  ${dataCondition.string}`);
     const answer = readlineSync.question('Answer: ');
-
     const resultCondition = checkCondition(dataCondition.result, answer);
     if (!resultCondition) {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${dataCondition.result}"`);
@@ -24,4 +22,4 @@ const startThisGame = (messageGreeting, dataGame) => {
   }
   console.log(`Congratulations, ${nameUser}!`);
 };
-export default startThisGame;
+export default startEngine;

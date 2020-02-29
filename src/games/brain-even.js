@@ -1,17 +1,17 @@
 
-import startThisGame from '../index.js';
-import { randomNumber } from '../lib/utils.js';
+import startEngine from '../index.js';
+import randomNumber from '../lib/utils.js';
 
-function isEven(number) {
-  return ((number % 2) === 0);
-}
+const isEven = (number) => ((number % 2) === 0);
 
-const messageGreeting = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const dataGame = {
   condition: () => {
+    const minNumber = 0;
     const maxNumber = 100;
-    const result = randomNumber(maxNumber);
+    const result = randomNumber(minNumber, maxNumber);
     return {
       string: result,
       result: (isEven(result) ? 'yes' : 'no'),
@@ -24,7 +24,7 @@ const dataGame = {
 };
 
 const startGame = () => {
-  startThisGame(messageGreeting, dataGame);
+  startEngine(description, dataGame);
 };
 
 export default startGame;
