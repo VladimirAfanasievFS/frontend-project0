@@ -15,24 +15,19 @@ const isSimple = (number) => {
 };
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const dataGame = {
-  condition: () => {
-    const minNumber = 0;
-    const maxNumber = 100;
-    const result = randomNumber(minNumber, maxNumber);
-    return {
-      string: result,
-      result: isSimple(result) ? 'yes' : 'no',
-    };
-  },
-  checkCondition: (input, answer) => {
-    const result = (input === answer);
-    return result;
-  },
+
+const condition = () => {
+  const minNumber = 0;
+  const maxNumber = 100;
+  const result = randomNumber(minNumber, maxNumber);
+  return {
+    string: result,
+    result: isSimple(result) ? 'yes' : 'no',
+  };
 };
 
 const startGame = () => {
-  startEngine(description, dataGame);
+  startEngine(description, condition);
 };
 
 export default startGame;

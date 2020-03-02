@@ -16,25 +16,21 @@ const getGCD = (firstValue, secondValue) => {
 };
 
 const description = 'Find the greatest common divisor of given numbers.';
-const dataGame = {
-  condition: () => {
-    const minNumber = 0;
-    const maxNumber = 20;
-    const firstValue = randomNumber(minNumber, maxNumber);
-    const secondValue = randomNumber(minNumber, maxNumber);
-    return {
-      string: `${firstValue}  ${secondValue}`,
-      result: getGCD(firstValue, secondValue),
-    };
-  },
-  checkCondition: (input, answer) => {
-    const result = Number(input) === Number(answer);
-    return result;
-  },
+
+const condition = () => {
+  const minNumber = 1;
+  const maxNumber = 20;
+  const firstValue = randomNumber(minNumber, maxNumber);
+  const secondValue = randomNumber(minNumber, maxNumber);
+  const result = getGCD(firstValue, secondValue).toString();
+  return {
+    string: `${firstValue}  ${secondValue}`,
+    result,
+  };
 };
 
 const startGame = () => {
-  startEngine(description, dataGame);
+  startEngine(description, condition);
 };
 
 export default startGame;
