@@ -1,32 +1,33 @@
 
 import startEngine from '../index.js';
-import randomNumber from '../lib/utils.js';
+import generateRandomNumber from '../lib/utils.js';
 
-const description = 'What is the result of the expression?';
+const calculator = {
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '*': (a, b) => a * b,
+};
 
-const condition = () => {
-  const minNumber = 0;
-  const maxNumber = 10;
-  const beginIndexArray = 0;
-  const operand1 = randomNumber(minNumber, maxNumber);
-  const operand2 = randomNumber(minNumber, maxNumber);
-  const operator = {
-    '+': (a, b) => a + b,
-    '-': (a, b) => a - b,
-    '*': (a, b) => a * b,
-  };
-  const arrKeys = Object.keys(operator);
-  const randomIndex = randomNumber(beginIndexArray, arrKeys.length);
-  const randomOperator = arrKeys[randomIndex];
-  const result = operator[randomOperator](operand1, operand2).toString();
+const gameDescription = 'What is the result of the expression?';
+
+const generateGameData = () => {
+  const operands = [generateRandomNumber(0, 10), generateRandomNumber(0, 15)];
+  const operators = Object.keys(calculator);
+  const firstIndexArray = 0;
+  const lastIndexArray = operators.length - 1;
+  const randomIndex = generateRandomNumber(firstIndexArray, lastIndexArray);
+  const randomOperator = operators[randomIndex];
+
+  const gameQuestion = `${operands[0]} ${randomOperator} ${operands[1]}`;
+  const gameAnswer = calculator[randomOperator](...operands).toString();
   return {
-    string: `${operand1} ${randomOperator} ${operand2}`,
-    result,
+    gameQuestion,
+    gameAnswer,
   };
 };
 
 const startGame = () => {
-  startEngine(description, condition);
+  startEngine(gameDescription, generateGameData);
 };
 
 export default startGame;

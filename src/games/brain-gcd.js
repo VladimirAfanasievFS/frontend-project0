@@ -1,36 +1,34 @@
 
 import startEngine from '../index.js';
-import randomNumber from '../lib/utils.js';
+import generateRandomNumber from '../lib/utils.js';
 
-const isDivisor = (firstValue, secondValue) => ((firstValue % secondValue) === 0);
+const isDivisor = (firstNumber, secondNumber) => ((firstNumber % secondNumber) === 0);
 
-const getGCD = (firstValue, secondValue) => {
+const getGCD = (firstOperand, secondOperand) => {
   let divisor = 1;
-  const minValue = (firstValue >= secondValue) ? firstValue : secondValue;
+  const minValue = (firstOperand >= secondOperand) ? firstOperand : secondOperand;
   for (let index = 1; index <= minValue; index += 1) {
-    if (isDivisor(firstValue, index) && isDivisor(secondValue, index)) {
+    if (isDivisor(firstOperand, index) && isDivisor(secondOperand, index)) {
       divisor = index;
     }
   }
   return divisor;
 };
 
-const description = 'Find the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const condition = () => {
-  const minNumber = 1;
-  const maxNumber = 20;
-  const firstValue = randomNumber(minNumber, maxNumber);
-  const secondValue = randomNumber(minNumber, maxNumber);
-  const result = getGCD(firstValue, secondValue).toString();
+const generateGameData = () => {
+  const operands = [generateRandomNumber(0, 100), generateRandomNumber(0, 80)];
+  const gameQuestion = `${operands.join(' ')}`;
+  const gameAnswer = getGCD(...operands).toString();
   return {
-    string: `${firstValue}  ${secondValue}`,
-    result,
+    gameQuestion,
+    gameAnswer,
   };
 };
 
 const startGame = () => {
-  startEngine(description, condition);
+  startEngine(gameDescription, generateGameData);
 };
 
 export default startGame;

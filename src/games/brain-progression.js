@@ -1,30 +1,33 @@
 
 import startEngine from '../index.js';
-import randomNumber from '../lib/utils.js';
+import generateRandomNumber from '../lib/utils.js';
 
-const description = 'What number is missing in the progression?';
+const gameDescription = 'What number is missing in the progression?';
 
-const condition = () => {
-  const minNumber = 0;
-  const maxNumber = 100;
-  const beginIndexArray = 0;
-  const maxLengthArray = 20;
-  const startArr = randomNumber(minNumber, maxNumber);
-  const resultStrArr = [];
-  for (let index = 1; index < maxLengthArray; index += 2) {
-    resultStrArr.push(startArr + index);
+const generateGameData = () => {
+  const maxLengthArray = 13;
+  const progressionFirstElement = generateRandomNumber(0, 100);
+  const progressionArray = [];
+  const progressionStep = generateRandomNumber(1, 10);
+  for (let index = 0; index < maxLengthArray; index += 1) {
+    progressionArray.push(progressionFirstElement + index * progressionStep);
   }
-  const indexRandom = randomNumber(beginIndexArray, resultStrArr.length);
-  const result = resultStrArr[indexRandom].toString();
-  resultStrArr[indexRandom] = '..';
+
+  const firstIndexArray = 0;
+  const lastIndexArray = progressionArray.length - 1;
+  const indexRandom = generateRandomNumber(firstIndexArray, lastIndexArray);
+  const gameAnswer = progressionArray[indexRandom].toString();
+  progressionArray[indexRandom] = '..';
+  const gameQuestion = progressionArray.join(' ');
+
   return {
-    string: resultStrArr.join(' '),
-    result,
+    gameQuestion,
+    gameAnswer,
   };
 };
 
 const startGame = () => {
-  startEngine(description, condition);
+  startEngine(gameDescription, generateGameData);
 };
 
 export default startGame;

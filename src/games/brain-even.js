@@ -1,25 +1,23 @@
 
 import startEngine from '../index.js';
-import randomNumber from '../lib/utils.js';
+import generateRandomNumber from '../lib/utils.js';
 
 const isEven = (number) => ((number % 2) === 0);
 
 
-const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const condition = () => {
-  const minNumber = 0;
-  const maxNumber = 100;
-  const resultString = randomNumber(minNumber, maxNumber);
-  const result = (isEven(resultString) ? 'yes' : 'no');
+const generateGameData = () => {
+  const gameQuestion = generateRandomNumber(0, 100);
+  const gameAnswer = (isEven(gameQuestion) ? 'yes' : 'no');
   return {
-    string: resultString,
-    result,
+    gameQuestion,
+    gameAnswer,
   };
 };
 
 const startGame = () => {
-  startEngine(description, condition);
+  startEngine(gameDescription, generateGameData);
 };
 
 export default startGame;
