@@ -5,24 +5,22 @@ import generateRandomNumber from '../lib/utils.js';
 const gameDescription = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-  const maxLengthArray = 13;
-  const progressionFirstElement = generateRandomNumber(0, 100);
-  const progressionArray = [];
-  const progressionStep = generateRandomNumber(1, 10);
-  for (let index = 0; index < maxLengthArray; index += 1) {
-    progressionArray.push(progressionFirstElement + index * progressionStep);
+  const progression = [];
+  const firstElement = generateRandomNumber(0, 100);
+  const step = generateRandomNumber(1, 10);
+  const maxLength = 13;
+  for (let index = 0; index < maxLength; index += 1) {
+    progression.push(firstElement + index * step);
   }
 
-  const firstIndexArray = 0;
-  const lastIndexArray = progressionArray.length - 1;
-  const indexRandom = generateRandomNumber(firstIndexArray, lastIndexArray);
-  const gameAnswer = progressionArray[indexRandom].toString();
-  progressionArray[indexRandom] = '..';
-  const gameQuestion = progressionArray.join(' ');
+  const hiddenElementIndex = generateRandomNumber(0, progression.length - 1);
+  const answer = progression[hiddenElementIndex];
+  progression[hiddenElementIndex] = '..';
+  const question = progression.join(' ');
 
   return {
-    gameQuestion,
-    gameAnswer,
+    question,
+    answer: answer.toString(),
   };
 };
 

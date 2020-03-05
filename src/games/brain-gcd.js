@@ -2,13 +2,13 @@
 import startEngine from '../index.js';
 import generateRandomNumber from '../lib/utils.js';
 
-const isDivisor = (firstNumber, secondNumber) => ((firstNumber % secondNumber) === 0);
+const isDivisor = (dividend, divisor) => (dividend % divisor === 0);
 
-const getGCD = (firstOperand, secondOperand) => {
+const getGCD = (operand1, operand2) => {
   let divisor = 1;
-  const minValue = (firstOperand >= secondOperand) ? firstOperand : secondOperand;
-  for (let index = 1; index <= minValue; index += 1) {
-    if (isDivisor(firstOperand, index) && isDivisor(secondOperand, index)) {
+  const minOperand = Math.min(operand1, operand2);
+  for (let index = 1; index <= minOperand; index += 1) {
+    if (isDivisor(operand1, index) && isDivisor(operand2, index)) {
       divisor = index;
     }
   }
@@ -18,12 +18,13 @@ const getGCD = (firstOperand, secondOperand) => {
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const generateGameData = () => {
-  const operands = [generateRandomNumber(0, 100), generateRandomNumber(0, 80)];
-  const gameQuestion = `${operands.join(' ')}`;
-  const gameAnswer = getGCD(...operands).toString();
+  const operand1 = generateRandomNumber(0, 100);
+  const operand2 = generateRandomNumber(0, 80);
+  const question = `${operand1} ${operand2}`;
+  const answer = getGCD(operand1, operand2);
   return {
-    gameQuestion,
-    gameAnswer,
+    question,
+    answer: answer.toString(),
   };
 };
 

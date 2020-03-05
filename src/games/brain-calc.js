@@ -11,18 +11,17 @@ const calculator = {
 const gameDescription = 'What is the result of the expression?';
 
 const generateGameData = () => {
-  const operands = [generateRandomNumber(0, 10), generateRandomNumber(0, 15)];
+  const operand1 = generateRandomNumber(0, 10);
+  const operand2 = generateRandomNumber(0, 10);
   const operators = Object.keys(calculator);
-  const firstIndexArray = 0;
-  const lastIndexArray = operators.length - 1;
-  const randomIndex = generateRandomNumber(firstIndexArray, lastIndexArray);
-  const randomOperator = operators[randomIndex];
+  const indexOperator = generateRandomNumber(0, operators.length - 1);
+  const operator = operators[indexOperator];
 
-  const gameQuestion = `${operands[0]} ${randomOperator} ${operands[1]}`;
-  const gameAnswer = calculator[randomOperator](...operands).toString();
+  const question = `${operand1} ${operator} ${operand2}`;
+  const answer = calculator[operator](operand1, operand2);
   return {
-    gameQuestion,
-    gameAnswer,
+    question,
+    answer: answer.toString(),
   };
 };
 
