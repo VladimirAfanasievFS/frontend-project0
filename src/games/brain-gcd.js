@@ -5,6 +5,8 @@ import generateRandomNumber from '../lib/utils.js';
 const isDivisor = (dividend, divisor) => (dividend % divisor === 0);
 
 const getGCD = (operand1, operand2) => {
+  if (operand1 < 1) { return operand2; }
+  if (operand2 < 1) { return operand1; }
   let divisor = 1;
   const minOperand = Math.min(operand1, operand2);
   for (let index = 1; index <= minOperand; index += 1) {
